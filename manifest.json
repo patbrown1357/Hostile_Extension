@@ -26,6 +26,6 @@
         "scripts": ["scripts/background.js"]
     },
     "permissions": [
-        "tabs", "fontSettings"
+        "tabs", "fontSettings","alarms"
     ]
 }

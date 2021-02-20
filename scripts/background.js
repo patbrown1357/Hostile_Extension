@@ -12,4 +12,12 @@ chrome.runtime.onMessage.addListener(
             chrome.tabs.create({"url":request.url});
         }
     }
-)
+);
+
+//alarm just to bug people
+var quack = new Audio(chrome.runtime.getURL("quack.mp3"));
+chrome.alarms.create("duckAlarm", {delayInMinutes:0.1, periodInMinutes: 1.5});
+
+chrome.alarms.onAlarm.addListener( function() {
+    quack.play();
+});

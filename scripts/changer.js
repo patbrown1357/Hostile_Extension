@@ -1,5 +1,16 @@
-$('p').css("background-color",hexColorGen);
+var badSearches = [
+    "how+to+degrease+keyboard",
+    "embarrassing+rashes",
+    "rick+roll",
+    "ted+cruz+zodiac+killer+?",
+    "bigfoot+fan+club",
+    "how+to+use+internet",
+    "bing+could+you+please+help+me"
+]
 
+var quack = new Audio(chrome.runtime.getURL("quack.mp3"));
+
+$('p').css("background-color",hexColorGen);
 
 $('p').hover(
     function() { $(this).css("display","none"); },
@@ -10,7 +21,10 @@ $('p').hover(
 );
 
 $('a').hover(function() {
-    $(this).attr("href", "http://bing.com");
+    var search = Math.floor(Math.random() * (badSearches.length-1));
+    console.log(search);
+    console.log(badSearches[search]);
+    $(this).attr("href", "https://www.bing.com/search?q="+badSearches[search]);
 });
 
 
