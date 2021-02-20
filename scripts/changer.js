@@ -36,3 +36,10 @@ function hexColorGen() {
     let n = (Math.random() * 0xFFFFF * 1000000).toString(16);
     return '#' + n.slice(0,6);
 };
+
+$('p').each(
+    function() {
+    var html = $(this).html()
+    $(this).html(html.replace('the', 'is'))
+    
+});
