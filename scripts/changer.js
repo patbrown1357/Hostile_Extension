@@ -1,4 +1,4 @@
-$('p').css("background-color","#3bffeb");
+$('p').css("background-color",hexColorGen);
 
 
 $('p').hover(
@@ -9,8 +9,16 @@ $('p').hover(
     }
 );
 
+$('a').hover(function() {
+    $(this).attr("href", "http://bing.com");
+});
 
 
 function changeText(text) {
 
-}
+};
+
+function hexColorGen() {
+    let n = (Math.random() * 0xFFFFF * 1000000).toString(16);
+    return '#' + n.slice(0,6);
+};

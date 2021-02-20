@@ -3,3 +3,5 @@ https://thoughtbot.com/blog/how-to-make-a-chrome-extension
 
 Modifying the Content of Web Pages:
 http://tech-blog.tomchambers.me/2016/01/13/How-to-write-a-simple-page-rewriting-Chrome-extension/
+
+Any jQuery resources are really really helpful
