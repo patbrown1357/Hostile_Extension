@@ -68,8 +68,8 @@ $('p').each(
     var n = Math.floor(Math.random() * (redacted.length-1));
     var regEx = new RegExp(redacted[n],'gi');
     var html = $(this).html();
-    $(this).html(html.replace(regEx,"<em class='censor'>gotcha</em>"));
-    $('.censor').css({"background-color":"black","color":"black"});
+    $(this).html(html.replace(regEx,"<em class='censor'>CENSORED</em>"));
+    $('.censor').css({"background-color":"black","color":"white"});
 });
 
 $('p').each(
