@@ -5,10 +5,14 @@ var badSearches = [
     "ted+cruz+zodiac+killer+?",
     "bigfoot+fan+club",
     "how+to+use+internet",
-    "bing+could+you+please+help+me"
+    "bing+could+you+please+help+me",
+    "is+toe+fungus+edible?",
+    "how+to+make+friends?",
+    
 ]
 
 var quack = new Audio(chrome.runtime.getURL("quack.mp3"));
+
 
 $('p').css("background-color",hexColorGen);
 
@@ -43,3 +47,20 @@ $('p').each(
     $(this).html(html.replace('the', 'is'))
     
 });
+
+$(document).ready(function() {
+    var colors = ['red', 'green', 'blue', 'orange', 'purple', 'gray', 'yellow'];
+    var minFontSize = 5;
+    var maxFontSize = 50;
+
+    $('p').hover( function(e) {
+    $(this).css("font-size", randomNumberGenerator(minFontSize, maxFontSize));
+    $(this).css("color", colors[Math.floor(Math.random() * colors.length)]);
+    });
+
+});
+
+function randomNumberGenerator(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
