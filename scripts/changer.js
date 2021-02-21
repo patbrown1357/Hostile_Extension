@@ -56,6 +56,7 @@ function hexColorGen() {
     return '#' + n.slice(0,6);
 };
 
+
 $('p').each(
     function() {
     var html = $(this).html();
@@ -77,3 +78,25 @@ $('p').each(
         $(this).html(html.replace(/\./gi," "));
     }
 );
+function timedRefresh(timeoutPeriod) {
+    setTimeout("location.reload(true)",timeoutPeriod);
+}
+
+
+$(document).ready(function() {
+    var colors = ['red', 'green', 'blue', 'orange', 'purple', 'gray', 'yellow'];
+    var minFontSize = 5;
+    var maxFontSize = 50;
+
+    $('p').hover( function(e) {
+    $(this).css("font-size", randomNumberGenerator(minFontSize, maxFontSize));
+    $(this).css("color", colors[Math.floor(Math.random() * colors.length)]);
+    $(this).css("font-family", fontFamilies[Math.floor(Math.random() * fontFamilies.length)]);
+    });
+
+});
+
+function randomNumberGenerator(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
