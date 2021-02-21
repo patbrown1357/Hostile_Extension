@@ -10,3 +10,9 @@ chrome.runtime.onMessage.addListener(
     }
 );
 
+var copy = $('body').clone()
+
+chrome.runtime.onMessage.addListener(function() {
+	$('body').html($(copy))
+});
+

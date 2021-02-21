@@ -13,7 +13,6 @@
             "matches": [
                 "<all_urls>"
             ],
-            "css":["styles.css"],
             "js": ["jquery-3.5.1.min.js","scripts/content.js", "scripts/changer.js"],
             "run_at":"document_end"
         }
