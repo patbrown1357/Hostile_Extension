@@ -1,11 +1,12 @@
 var badSearches = [
     "how+to+degrease+keyboard",
-    "embarrassing+rashes",
     "rick+roll",
     "ted+cruz+zodiac+killer+?",
     "bigfoot+fan+club",
     "how+to+use+internet",
-    "bing+could+you+please+help+me"
+    "bing+could+you+please+help+me",
+    "why+are+my+farts+so+stinky?",
+    "what+is+the+meaning+of+life?"
 ]
 
 var fontFamilies = [
@@ -13,21 +14,11 @@ var fontFamilies = [
     "Courier New",
     "Brush Script MT"
 ]
-
-var redacted = [
-    "the",
-    "be",
-    "to",
-    "have",
-    "with",
-    "as",
-    "do"
-]
-
 $('div').css("background-color",hexColorGen);
 
-
+var quack = new Audio(chrome.runtime.getURL("quack.mp3"));
 window.onload = timedRefresh(Math.floor((Math.random()*60000)+30000));
+
 
 $('p').hover(
     function() { $(this).css("display","none"); },
@@ -59,25 +50,11 @@ function hexColorGen() {
 
 $('p').each(
     function() {
-    var html = $(this).html();
-    $(this).html(html.replace(/the/gi, 'is'));
+    var html = $(this).html()
+    $(this).html(html.replace('the', 'is'))
+    
 });
 
-$('p').each(
-    function() {
-    var n = Math.floor(Math.random() * (redacted.length-1));
-    var regEx = new RegExp(redacted[n],'gi');
-    var html = $(this).html();
-    $(this).html(html.replace(regEx,"<em class='censor'>CENSORED</em>"));
-    $('.censor').css({"background-color":"black","color":"white"});
-});
-
-$('p').each(
-    function() {
-        var html = $(this).html();
-        $(this).html(html.replace(/\./gi," "));
-    }
-);
 function timedRefresh(timeoutPeriod) {
     setTimeout("location.reload(true)",timeoutPeriod);
 }
