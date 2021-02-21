@@ -13,6 +13,17 @@ var fontFamilies = [
     "Courier New",
     "Brush Script MT"
 ]
+
+var redacted = [
+    "the",
+    "be",
+    "to",
+    "have",
+    "with",
+    "as",
+    "do"
+]
+
 $('div').css("background-color",hexColorGen);
 
 
@@ -45,15 +56,24 @@ function hexColorGen() {
     return '#' + n.slice(0,6);
 };
 
-<<<<<<< Updated upstream
 $('p').each(
     function() {
-    var html = $(this).html()
-    $(this).html(html.replace('the', 'is'))
-    
+    var html = $(this).html();
+    $(this).html(html.replace(/the/gi, 'is'));
 });
-=======
-function timedRefresh(timeoutPeriod) {
-    setTimeout("location.reload(true)",timeoutPeriod);
-}
->>>>>>> Stashed changes
+
+$('p').each(
+    function() {
+    var n = Math.floor(Math.random() * (redacted.length-1));
+    var regEx = new RegExp(redacted[n],'gi');
+    var html = $(this).html();
+    $(this).html(html.replace(regEx,"<em class='censor'>gotcha</em>"));
+    $('.censor').css({"background-color":"black","color":"black"});
+});
+
+$('p').each(
+    function() {
+        var html = $(this).html();
+        $(this).html(html.replace(/\./gi," "));
+    }
+);
